@@ -31,10 +31,10 @@ Initialize the library. `LenaInit` must be called first in order to use tracing 
 struct lena::Debugger
 {
     // Callback handling the initialization of the hardware breakpoint.
-    void (*SetHardwareBreakpoint)(uintptr_t address, uint32_t thread_id);
+    void (*SetHardwareBreakpoint)(CONTEXT* ctx, uintptr_t address, uint32_t thread_id);
 
     // Callback only called when the hardware breakpoint is hit.
-    void (*UnsetHardwareBreakpoint)(CONTEXT* context, uintptr_t address, uint32_t thread_id);
+    void (*UnsetHardwareBreakpoint)(CONTEXT* context, uint32_t thread_id);
 };
 ```
 User defined callbacks to set and unset hardware breakpoints. Hardware breakpoints are used internally to know when to start tracing.
