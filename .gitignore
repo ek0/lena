@@ -1,0 +1,5 @@
+cmake64/
+cmake/
+.vscode/
+.vs/
+out/
